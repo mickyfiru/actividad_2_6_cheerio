@@ -22,14 +22,14 @@ app.use((req, res) => {
     mensaje: "Ruta no encontrada"
   });
 });
-
+// Middleware para manejar errores lanzados desde los controladores o servicios.
 app.use((err, req, res, next) => {
   res.status(err.status || 500).json({
     ok: false,
     mensaje: err.message || "Error interno del servidor"
   });
 });
-
+// Iniciamos el servidor en el puerto definido y mostramos un mensaje en la consola.
 app.listen(PORT, () => {
   console.log(`Servidor corriendo en http://localhost:${PORT}`);
 });
